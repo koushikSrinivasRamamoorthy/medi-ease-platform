@@ -107,18 +107,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* Doctor cards button alignment */
-@layer components {
-  .doctor-card-content {
-    @apply flex flex-col h-full;
-  }
-  
-  .doctor-card-specializations {
-    @apply flex-grow;
-  }
-  
-  .doctor-card-button {
-    @apply mt-auto;
-  }
-}
