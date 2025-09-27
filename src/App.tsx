@@ -113,7 +113,7 @@ const App = () => {
     {
       name: "Dr. S. Sriranjini M.D.",
       specialty: "Pediatrics",
-      experience: "~5 years",
+      experience: "5 years",
       education: "M.D. Paediatrics", 
       specializations: ["Kids Speciality", "Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
       availability: "4:00 pm – 9:00 pm (Daily)",
@@ -228,12 +228,12 @@ const App = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button 
-                    onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
-                    size="default" 
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-auto"
+                    onClick={() => window.open('https://wa.me/917708060368?text=I%20want%20to%20order%20medicine%20from%20SVR%20Clinic', '_blank')}
+                    size="default"
+                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 h-auto"
                   >
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Appointment Now
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Order Medicine via WhatsApp
                   </Button>
                   <Button 
                     onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
@@ -245,12 +245,12 @@ const App = () => {
                     Meet Our Doctors
                   </Button>
                   <Button 
-                    onClick={() => window.open('https://wa.me/917708060368?text=I%20want%20to%20order%20medicine%20from%20SVR%20Clinic', '_blank')}
-                    size="default"
-                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 h-auto"
+                    onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
+                    size="default" 
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-auto"
                   >
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    Order Medicine via WhatsApp
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Book Appointment Now
                   </Button>
                 </div>
               </div>
@@ -286,13 +286,13 @@ const App = () => {
                         <CardTitle className="text-xl">{doctor.name}</CardTitle>
                         <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
                       </CardHeader>
-                      <CardContent className="space-y-4">
+                      <CardContent className="space-y-4 doctor-card-content">
                         <div className="space-y-2 text-sm">
                           <p><strong>Experience:</strong> {doctor.experience}</p>
                           <p><strong>Education:</strong> {doctor.education}</p>
                           <p><strong>Available:</strong> {doctor.availability}</p>
                         </div>
-                        <div className="min-h-[72px]">
+                        <div className="min-h-[72px] doctor-card-specializations">
                           <h4 className="font-medium mb-2">Specializations:</h4>
                           <div className="flex flex-wrap gap-1">
                             {doctor.specializations.map((spec, i) => (
@@ -302,7 +302,7 @@ const App = () => {
                         </div>
                         <Button 
                           onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
-                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground doctor-card-button"
                         >
                           <MessageCircle className="mr-2 h-4 w-4" />
                           Book via WhatsApp
@@ -326,13 +326,13 @@ const App = () => {
                         <CardTitle className="text-xl">{doctor.name}</CardTitle>
                         <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
                       </CardHeader>
-                      <CardContent className="space-y-4">
+                      <CardContent className="space-y-4 doctor-card-content">
                         <div className="space-y-2 text-sm">
                           <p><strong>Experience:</strong> {doctor.experience}</p>
                           <p><strong>Education:</strong> {doctor.education}</p>
                           <p><strong>Available:</strong> {doctor.availability}</p>
                         </div>
-                        <div className="min-h-[72px]">
+                        <div className="min-h-[72px] doctor-card-specializations">
                           <h4 className="font-medium mb-2">Specializations:</h4>
                           <div className="flex flex-wrap gap-1">
                             {doctor.specializations.map((spec, i) => (
@@ -342,7 +342,7 @@ const App = () => {
                         </div>
                         <Button 
                           onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
-                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground doctor-card-button"
                         >
                           <MessageCircle className="mr-2 h-4 w-4" />
                           Book via WhatsApp

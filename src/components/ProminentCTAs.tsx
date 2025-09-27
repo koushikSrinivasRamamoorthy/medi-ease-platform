@@ -11,13 +11,19 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const homeSection = document.getElementById('home');
       const doctorsSection = document.getElementById('doctors');
-      if (doctorsSection) {
-        const rect = doctorsSection.getBoundingClientRect();
-        // Only show CTAs when user has scrolled INTO the doctors section
-        // This means the top of the section is at or above the middle of the screen
-        const isInDoctorsSection = rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
-        setIsVisible(isInDoctorsSection);
+      
+      if (homeSection && doctorsSection) {
+        const homeRect = homeSection.getBoundingClientRect();
+        const doctorsRect = doctorsSection.getBoundingClientRect();
+        
+        // Only show CTAs when user has scrolled completely past the home section
+        // AND is in or past the doctors section
+        const hasScrolledPastHome = homeRect.bottom <= 0;
+        const isInOrPastDoctors = doctorsRect.top <= window.innerHeight;
+        
+        setIsVisible(hasScrolledPastHome && isInOrPastDoctors);
       }
     };
 
@@ -27,8 +33,8 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleWhatsAppClick = () => {
-    const whatsappUrl = "https://wa.me/917708060368?text=Hi! I would like to book an appointment and order medicines.";
+  const handleOrderMedicine = () => {
+    const whatsappUrl = "https://wa.me/917708060368?text=I%20want%20to%20order%20medicine%20from%20SVR%20Clinic";
     window.open(whatsappUrl, '_blank');
   };
 
@@ -40,32 +46,35 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
   if (!isVisible) return null;
 
   return (
-    <div className="md:hidden fixed bottom-6 right-6 z-40 flex flex-col gap-3 animate-fade-in">
-      {/* WhatsApp CTA */}
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col md:flex-col gap-3 animate-fade-in">
+      {/* Order Medicine via WhatsApp CTA */}
       <Button
-        onClick={handleWhatsAppClick}
-        className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-4 rounded-full animate-pulse"
+        onClick={handleOrderMedicine}
+        className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-4 rounded-full animate-pulse md:flex md:items-center md:justify-start md:w-auto md:px-6 md:rounded-lg"
         size="lg"
       >
-        <MessageCircle className="h-5 w-5" />
+        <MessageCircle className="h-5 w-5 md:mr-2" />
+        <span className="hidden md:inline">Order Medicine</span>
       </Button>
 
-      {/* Phone CTA */}
+      {/* Meet Our Doctors CTA */}
       <Button
-        onClick={handlePhoneClick}
-        className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-4 rounded-full"
+        onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
+        className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-4 rounded-full md:flex md:items-center md:justify-start md:w-auto md:px-6 md:rounded-lg"
         size="lg"
       >
-        <Phone className="h-5 w-5" />
+        <Phone className="h-5 w-5 md:mr-2" />
+        <span className="hidden md:inline">Meet Our Doctors</span>
       </Button>
 
       {/* Book Appointment CTA */}
       <Button 
         onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
-        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-4 rounded-full animate-pulse"
+        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-4 rounded-full animate-pulse md:flex md:items-center md:justify-start md:w-auto md:px-6 md:rounded-lg"
         size="lg"
       >
-        <Calendar className="h-5 w-5" />
+        <Calendar className="h-5 w-5 md:mr-2" />
+        <span className="hidden md:inline">Book Appointment</span>
       </Button>
     </div>
   );
