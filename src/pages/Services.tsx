@@ -89,13 +89,15 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Comprehensive 
-            <span className="text-primary"> Healthcare Services</span>
-          </h1>
+          <header>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Medical Services – Sri Vaitheswara Clinic, 
+              <span className="text-primary"> Mayiladuthurai</span>
+            </h1>
+          </header>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From primary care to specialized treatments, we offer a full range of medical services 
-            with the latest technology and compassionate care.
+            Explore SVR Clinic's healthcare services in Mayiladuthurai: Cardiology, Neurology, Pediatrics, and more. 
+            Expert care at affordable prices, trusted by local families.
           </p>
         </div>
 
@@ -108,7 +110,10 @@ const Services = () => {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <service.icon className="h-6 w-6 text-primary" />
+                      <service.icon 
+                        className="h-6 w-6 text-primary" 
+                        aria-label={`${service.title} services at SVR Clinic Mayiladuthurai`}
+                      />
                     </div>
                     <Badge variant="secondary">{service.badge}</Badge>
                   </div>
@@ -144,7 +149,10 @@ const Services = () => {
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <facility.icon className="h-6 w-6 text-accent" />
+                    <facility.icon 
+                      className="h-6 w-6 text-accent" 
+                      aria-label={`${facility.title} at Sri Vaitheswara Clinic Mayiladuthurai`}
+                    />
                   </div>
                   <CardTitle className="text-lg">{facility.title}</CardTitle>
                 </CardHeader>

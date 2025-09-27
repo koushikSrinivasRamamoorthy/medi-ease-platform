@@ -204,7 +204,7 @@ const App = () => {
                   Sri Vaitheswara Clinic (SVR Clinic)
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in">
-                  Experience world-class healthcare with our team of expert doctors. Book appointments online, get WhatsApp consultations, and order medicines with home delivery.
+                  Your trusted family healthcare partner in Mayiladuthurai. Expert doctors, affordable treatments, and quality medicines for comprehensive medical care.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button 
@@ -233,12 +233,14 @@ const App = () => {
           {/* Doctors Section */}
           <section id="doctors" className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-16">
+            <div className="text-center mb-16">
+              <header>
                 <h2 className="text-4xl font-bold mb-4">Meet Our Expert Doctors</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Our team of highly qualified medical professionals is dedicated to providing you with the best healthcare experience.
-                </p>
-              </div>
+              </header>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Our team of highly qualified medical professionals is dedicated to providing you with the best healthcare experience.
+              </p>
+            </div>
               
               {/* Inverted triangle layout: 3 cards on top row, 2 centered on bottom */}
               <div className="max-w-6xl mx-auto">
@@ -248,7 +250,10 @@ const App = () => {
                     <Card key={index} className="group hover:shadow-lg transition-all duration-300">
                       <CardHeader className="text-center">
                         <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <Stethoscope className="h-12 w-12 text-primary" />
+                          <Stethoscope 
+                            className="h-12 w-12 text-primary" 
+                            aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
+                          />
                         </div>
                         <CardTitle className="text-xl">{doctor.name}</CardTitle>
                         <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
@@ -285,7 +290,10 @@ const App = () => {
                     <Card key={index + 3} className="group hover:shadow-lg transition-all duration-300">
                       <CardHeader className="text-center">
                         <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <Stethoscope className="h-12 w-12 text-primary" />
+                          <Stethoscope 
+                            className="h-12 w-12 text-primary" 
+                            aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
+                          />
                         </div>
                         <CardTitle className="text-xl">{doctor.name}</CardTitle>
                         <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
@@ -323,7 +331,9 @@ const App = () => {
           <section id="services" className="py-20">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Our Medical Services</h2>
+                <header>
+                  <h2 className="text-4xl font-bold mb-4">Our Medical Services</h2>
+                </header>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                   Comprehensive healthcare services delivered by our expert medical team using the latest technology and treatments.
                 </p>
@@ -336,7 +346,10 @@ const App = () => {
                     <Card key={index} className="group hover:shadow-lg transition-all duration-300">
                       <CardHeader>
                         <div className="flex items-center justify-between mb-4">
-                          <IconComponent className="h-12 w-12 text-primary" />
+                          <IconComponent 
+                            className="h-12 w-12 text-primary" 
+                            aria-label={`${service.title} services at SVR Clinic Mayiladuthurai`}
+                          />
                           <Badge className="bg-accent text-accent-foreground">{service.badge}</Badge>
                         </div>
                         <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -363,7 +376,9 @@ const App = () => {
           <section id="location" className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Visit Our Clinic</h2>
+                <header>
+                  <h2 className="text-4xl font-bold mb-4">Visit Our Clinic</h2>
+                </header>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                   Conveniently located in Mayiladuthurai with easy access and ample parking.
                 </p>
@@ -373,7 +388,7 @@ const App = () => {
                 {/* Google Map */}
                 <Card>
                   <CardContent className="p-0">
-                    <iframe 
+    <iframe 
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.1636496821343!2d79.64969647561085!3d11.101178389068064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a55211c97157d45%3A0xf89a4bef459ed673!2sSri%20Vaitheswara%20Clinic!5e0!3m2!1sen!2sde!4v1758693593697!5m2!1sen!2sde" 
                       width="100%" 
                       height="450" 
@@ -382,6 +397,7 @@ const App = () => {
                       loading="lazy" 
                       referrerPolicy="no-referrer-when-downgrade"
                       className="rounded-t-lg"
+                      title="Sri Vaitheswara Clinic location map in Mayiladuthurai, Tamil Nadu"
                     />
                     <div className="p-6">
                       <Button className="w-full" variant="outline">

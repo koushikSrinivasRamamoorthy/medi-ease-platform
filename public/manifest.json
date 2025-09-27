@@ -1,0 +1,20 @@
+{
+  "name": "Sri Vaitheswara Clinic (SVR Clinic) - Healthcare Services Mayiladuthurai",
+  "short_name": "SVR Clinic",
+  "description": "Visit Sri Vaitheswara Clinic (SVR Clinic) in Mayiladuthurai for affordable, reliable healthcare. Expert doctors, trusted treatments, and quality medicines at low cost.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "categories": ["health", "medical"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

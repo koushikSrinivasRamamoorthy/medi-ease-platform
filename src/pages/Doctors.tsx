@@ -77,17 +77,18 @@ const Doctors = () => {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Meet Our Expert 
-            <span className="text-primary"> Medical Team</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our board-certified physicians bring years of experience and specialized expertise 
-            to provide you with the highest quality healthcare.
-          </p>
-        </div>
+                      <div className="text-center mb-16">
+                <header>
+                  <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                    Meet Our Doctors – Sri Vaitheswara Clinic, 
+                    <span className="text-primary"> Mayiladuthurai</span>
+                  </h1>
+                </header>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Book an appointment with experienced doctors at SVR Clinic, Mayiladuthurai. 
+                  Personalized care, affordable treatment, and trusted healthcare services for your family.
+                </p>
+              </div>
 
         {/* Doctors Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -95,7 +96,10 @@ const Doctors = () => {
             <Card key={doctor.id} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="aspect-[3/4] bg-gradient-to-br from-secondary/50 to-primary/10 flex items-center justify-center">
                 <div className="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center">
-                  <Award className="w-16 h-16 text-primary" />
+                  <Award 
+                    className="w-16 h-16 text-primary" 
+                    aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
+                  />
                 </div>
               </div>
               
