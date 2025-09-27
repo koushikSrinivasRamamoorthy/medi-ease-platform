@@ -56,54 +56,64 @@ const App = () => {
 
   const doctors = [
     {
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Ramesh Babu M.S. ENT (Ear Nose Throat)",
+      specialty: "ENT (Ear Nose Throat)",
+      experience: "15+ years",
+      education: "Professor, Vilupuram Medical College",
+      specializations: ["Ear", "Nose", "Throat"],
+      availability: "4:00 pm – 09:00 pm (Mon, Wed, Sat)",
+      location: "ENT Clinic",
+      calendlyUrl: "https://calendly.com/svrclinic-ent"
+    },
+    {
+      name: "Dr. Aswin Pandian M.B.B.S. General Medicine",
+      specialty: "General Medicine", 
+      experience: "Family Doctor",
+      education: "M.B.B.S.",
+      specializations: ["Family Doctor", "Personalized Health Guidance"],
+      availability: "8:00 am – 10:00 pm (Daily)",
+      location: "General Medicine",
+      calendlyUrl: "https://calendly.com/svrclinic-general"
+    },
+    {
+      name: "Dr. G. Balan MBBS, M.S. (General Surgery)",
+      specialty: "General Surgery",
+      experience: "5+ years", 
+      education: "MBBS, M.S. (General Surgery)",
+      specializations: ["Laparoscopy", "Endoscopy", "Varicose Vein", "Expert Care for Lumps & Swellings"],
+      availability: "1:00 pm – 06:30 pm (Daily)",
+      location: "Surgery Department",
+      calendlyUrl: "https://calendly.com/svrclinic-surgery"
+    },
+    {
+      name: "Dr. S. Giridharan M.D. D.M (Cardiology)",
       specialty: "Cardiology",
-      experience: "15 years",
-      education: "Harvard Medical School",
-      specializations: ["Heart Surgery", "Cardiac Rehabilitation", "Preventive Cardiology"],
-      availability: "Mon-Fri 9AM-5PM",
-      location: "Main Campus",
-      calendlyUrl: "https://calendly.com/drjohnson"
+      experience: "10+ years",
+      education: "Professor, Mahatma Gandhi Medical College", 
+      specializations: ["Full Heart Check-up", "Chest Pain & Emergencies", "Heart Rhythm & Valve Issues"],
+      availability: "Friday 9:00 am – 5:00 pm",
+      location: "Cardiology Wing",
+      calendlyUrl: "https://calendly.com/svrclinic-cardiology"
     },
     {
-      name: "Dr. Michael Chen",
-      specialty: "Neurology", 
-      experience: "12 years",
-      education: "Johns Hopkins University",
-      specializations: ["Stroke Treatment", "Epilepsy", "Memory Disorders"],
-      availability: "Tue-Sat 10AM-6PM",
-      location: "Neurology Wing",
-      calendlyUrl: "https://calendly.com/drchen"
+      name: "Dr. D. Siddarth Munusamy MS.M.Ch (Urology)",
+      specialty: "Urology",
+      experience: "10+ years",
+      education: "MS.M.Ch (Urology)", 
+      specializations: ["Kidney Stone", "Bladder & Urinary Problems", "Prostate Health", "Male Fertility Problems"],
+      availability: "Monday 9:00 am – 5:00 pm",
+      location: "Urology Department",
+      calendlyUrl: "https://calendly.com/svrclinic-urology"
     },
     {
-      name: "Dr. Emily Rodriguez",
+      name: "Dr. S. Sriranjini M.D. Paediatrics (Kids Speciality)",
       specialty: "Pediatrics",
-      experience: "10 years", 
-      education: "Stanford Medical School",
-      specializations: ["Child Development", "Immunizations", "Adolescent Health"],
-      availability: "Mon-Fri 8AM-4PM",
-      location: "Children's Center",
-      calendlyUrl: "https://calendly.com/drodriguez"
-    },
-    {
-      name: "Dr. James Wilson",
-      specialty: "Orthopedics",
-      experience: "18 years",
-      education: "Mayo Clinic College",
-      specializations: ["Joint Replacement", "Sports Medicine", "Spine Surgery"],
-      availability: "Mon-Thu 9AM-5PM",
-      location: "Orthopedic Center",
-      calendlyUrl: "https://calendly.com/drwilson"  
-    },
-    {
-      name: "Dr. Lisa Thompson",
-      specialty: "Dermatology",
-      experience: "8 years",
-      education: "UCLA Medical School", 
-      specializations: ["Skin Cancer", "Cosmetic Dermatology", "Pediatric Skin"],
-      availability: "Wed-Sun 10AM-6PM",
-      location: "Dermatology Clinic",
-      calendlyUrl: "https://calendly.com/drthompson"
+      experience: "~5 years",
+      education: "M.D. Paediatrics", 
+      specializations: ["Kids Speciality", "Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
+      availability: "4:00 pm – 9:00 pm (Daily)",
+      location: "Pediatrics Wing",
+      calendlyUrl: "https://calendly.com/svrclinic-pediatrics"
     }
   ];
 
@@ -112,43 +122,43 @@ const App = () => {
       icon: HeartPulse,
       title: "Cardiology",
       description: "Comprehensive heart care with state-of-the-art diagnostic and treatment options.",
-      features: ["ECG & Stress Testing", "Cardiac Catheterization", "Heart Surgery", "Preventive Care"],
-      badge: "24/7 Emergency"
+      features: ["Full Heart Check-up", "Chest Pain & Emergencies", "Heart Rhythm & Valve Issues", "Expert Care"],
+      badge: "Specialist"
     },
     {
-      icon: Brain,
-      title: "Neurology", 
-      description: "Advanced neurological care for brain, spine, and nervous system disorders.",
-      features: ["MRI & CT Scans", "Stroke Treatment", "Epilepsy Management", "Memory Care"],
-      badge: "Specialized Care"
+      icon: Stethoscope,
+      title: "ENT (Ear Nose Throat)", 
+      description: "Expert treatment for ear, nose, and throat conditions with modern equipment.",
+      features: ["Ear Problems", "Nasal Issues", "Throat Infections", "ENT Surgery"],
+      badge: "Professor"
     },
     {
       icon: Baby,
       title: "Pediatrics",
-      description: "Complete healthcare for children from infancy through adolescence.",
-      features: ["Well-Child Visits", "Immunizations", "Growth Monitoring", "Urgent Care"],
+      description: "Complete healthcare for children with child-friendly care and environment.",
+      features: ["Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
       badge: "Child-Friendly"
     },
     {
       icon: Bone,
-      title: "Orthopedics",
-      description: "Expert treatment for bones, joints, muscles, and sports-related injuries.",
-      features: ["Joint Replacement", "Sports Medicine", "Physical Therapy", "Minimally Invasive Surgery"],
-      badge: "Advanced Surgery"
+      title: "General Surgery",
+      description: "Modern surgical treatments including laparoscopy and minimally invasive procedures.",  
+      features: ["Laparoscopy", "Endoscopy", "Varicose Vein", "Lumps & Swellings"],
+      badge: "Modern Surgery"
     },
     {
-      icon: Eye,
-      title: "Dermatology",
-      description: "Comprehensive skin care including medical, surgical, and cosmetic treatments.",
-      features: ["Skin Cancer Screening", "Cosmetic Procedures", "Acne Treatment", "Pediatric Dermatology"],
-      badge: "Latest Technology"
+      icon: Brain,
+      title: "Urology",
+      description: "Specialized care for kidney, bladder, and urinary system problems.",
+      features: ["Kidney Stone", "Bladder & Urinary Problems", "Prostate Health", "Male Fertility"],
+      badge: "Specialized Care"
     },
     {
       icon: Stethoscope,
       title: "General Medicine",
-      description: "Primary care services for adults with focus on preventive healthcare.",
-      features: ["Annual Checkups", "Chronic Disease Management", "Preventive Screenings", "Health Counseling"],
-      badge: "Preventive Focus"
+      description: "Primary care services with personalized health guidance for the whole family.",
+      features: ["Family Doctor", "Personalized Health Guidance", "Preventive Care", "Health Checkups"],
+      badge: "Family Care"
     }
   ];
 
@@ -160,8 +170,8 @@ const App = () => {
   ];
 
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "+91 77080 6036", href: "tel:+917708060362" },
-    { icon: Mail, label: "Email", value: "info@svrclinic.com", href: "mailto:info@svrclinic.com" },
+    { icon: Phone, label: "Phone", value: "+91 77080 60368", href: "tel:+917708060368" },
+    { icon: Mail, label: "Email", value: "sri.v.clinic@gmail.com", href: "mailto:sri.v.clinic@gmail.com" },
     { icon: MapPin, label: "Address", value: "Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India", href: "#location" },
     { icon: Clock, label: "Hours", value: "Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-5PM", href: null }
   ];
@@ -209,20 +219,28 @@ const App = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button 
                     onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
-                    size="lg" 
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 h-auto"
+                    size="default" 
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-auto"
                   >
-                    <Calendar className="mr-2 h-5 w-5" />
+                    <Calendar className="mr-2 h-4 w-4" />
                     Book Appointment Now
                   </Button>
                   <Button 
                     onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
                     variant="outline" 
-                    size="lg"
-                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg px-8 py-6 h-auto"
+                    size="default"
+                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-6 py-3 h-auto"
                   >
-                    <Users className="mr-2 h-5 w-5" />
+                    <Users className="mr-2 h-4 w-4" />
                     Meet Our Doctors
+                  </Button>
+                  <Button 
+                    onClick={() => window.open('https://wa.me/917708060368?text=I%20want%20to%20order%20medicine%20from%20SVR%20Clinic', '_blank')}
+                    size="default"
+                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 h-auto"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Order Medicine via WhatsApp
                   </Button>
                 </div>
               </div>
@@ -242,7 +260,7 @@ const App = () => {
               </p>
             </div>
               
-              {/* Inverted triangle layout: 3 cards on top row, 2 centered on bottom */}
+              {/* Updated layout: 3 cards on top row, 3 cards on bottom row */}
               <div className="max-w-6xl mx-auto">
                 {/* First row - 3 doctors */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -273,20 +291,20 @@ const App = () => {
                           </div>
                         </div>
                         <Button 
-                          onClick={() => handleBookAppointment(doctor)}
+                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.name.split(' ')[1] + ' ' + doctor.name.split(' ')[2])}`, '_blank')}
                           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         >
-                          <Calendar className="mr-2 h-4 w-4" />
-                          Book Appointment
+                          <MessageCircle className="mr-2 h-4 w-4" />
+                          Book via WhatsApp
                         </Button>
                       </CardContent>
                     </Card>
                   ))}
                 </div>
                 
-                {/* Second row - 2 doctors centered */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {doctors.slice(3, 5).map((doctor, index) => (
+                {/* Second row - 3 doctors */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {doctors.slice(3, 6).map((doctor, index) => (
                     <Card key={index + 3} className="group hover:shadow-lg transition-all duration-300">
                       <CardHeader className="text-center">
                         <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -313,11 +331,11 @@ const App = () => {
                           </div>
                         </div>
                         <Button 
-                          onClick={() => handleBookAppointment(doctor)}
+                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.name.split(' ')[1] + ' ' + doctor.name.split(' ')[2])}`, '_blank')}
                           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         >
-                          <Calendar className="mr-2 h-4 w-4" />
-                          Book Appointment
+                          <MessageCircle className="mr-2 h-4 w-4" />
+                          Book via WhatsApp
                         </Button>
                       </CardContent>
                     </Card>
@@ -339,7 +357,7 @@ const App = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 {services.map((service, index) => {
                   const IconComponent = service.icon;
                   return (
@@ -400,7 +418,11 @@ const App = () => {
                       title="Sri Vaitheswara Clinic location map in Mayiladuthurai, Tamil Nadu"
                     />
                     <div className="p-6">
-                      <Button className="w-full" variant="outline">
+                      <Button 
+                        onClick={() => window.open('https://www.google.com/maps/dir/?api=1&destination=SVR+Clinic+Mayiladuthurai', '_blank')}
+                        className="w-full" 
+                        variant="outline"
+                      >
                         <MapPin className="mr-2 h-4 w-4" />
                         Get Directions
                       </Button>
@@ -441,7 +463,7 @@ const App = () => {
                           <p className="text-white/90 text-sm">Order medicines and get instant consultation via WhatsApp</p>
                         </div>
                         <Button 
-                          onClick={() => window.open('https://wa.me/917708060362?text=Hi! I would like to order medicines.', '_blank')}
+                          onClick={() => window.open('https://wa.me/917708060368?text=Hi! I would like to order medicines.', '_blank')}
                           variant="secondary"
                           className="bg-white text-[#25D366] hover:bg-white/90"
                         >
@@ -475,11 +497,11 @@ const App = () => {
             </div>
           </footer>
 
-          {/* Prominent CTAs */}
-          <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 md:flex-row">
+          {/* Prominent CTAs - Vertical on Desktop */}
+          <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
             {/* WhatsApp CTA */}
             <Button
-              onClick={() => window.open('https://wa.me/917708060362?text=Hi! I would like to book an appointment and order medicines.', '_blank')}
+              onClick={() => window.open('https://wa.me/917708060368?text=Hi! I would like to book an appointment and order medicines.', '_blank')}
               className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-6 rounded-full animate-pulse"
               size="lg"
             >
@@ -489,7 +511,7 @@ const App = () => {
 
             {/* Phone CTA */}
             <Button
-              onClick={() => window.location.href = "tel:+917708060362"}
+              onClick={() => window.location.href = "tel:+917708060368"}
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-6 rounded-full"
               size="lg"
             >

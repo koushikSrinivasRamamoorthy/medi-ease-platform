@@ -18,7 +18,6 @@ const Header = () => {
     { id: "home", label: "Home" },
     { id: "doctors", label: "Our Doctors" },
     { id: "services", label: "Services" },
-    { id: "contact", label: "Contact" },
     { id: "location", label: "Location" },
   ];
 
@@ -47,14 +46,17 @@ const Header = () => {
 
         {/* Contact Info */}
         <div className="hidden lg:flex items-center space-x-4">
-          <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+          <a href="tel:+917708060368" className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors">
             <Phone className="h-4 w-4" />
-            <span>+91 77080 6036</span>
-          </div>
-          <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+            <span>+91 77080 60368</span>
+          </a>
+          <button 
+            onClick={() => scrollToSection('location')}
+            className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
             <MapPin className="h-4 w-4" />
             <span>Mayiladuthurai, TN</span>
-          </div>
+          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -84,14 +86,17 @@ const Header = () => {
               ))}
             </nav>
             <div className="mt-6 pt-6 border-t">
-              <div className="flex items-center space-x-1 text-sm text-muted-foreground mb-2">
+              <a href="tel:+917708060368" className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors mb-2">
                 <Phone className="h-4 w-4" />
-                <span>+91 77080 6036</span>
-              </div>
-              <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                <span>+91 77080 60368</span>
+              </a>
+              <button 
+                onClick={() => scrollToSection('location')}
+                className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+              >
                 <MapPin className="h-4 w-4" />
                 <span>Mayiladuthurai, TN</span>
-              </div>
+              </button>
             </div>
           </SheetContent>
         </Sheet>
