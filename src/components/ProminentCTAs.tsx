@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle, Calendar } from "lucide-react";
+import { Phone, MessageCircle, Calendar, Users } from "lucide-react";
 
 interface ProminentCTAsProps {
   onBookAppointment: () => void;
@@ -11,13 +11,20 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const homeSection = document.getElementById('home');
       const doctorsSection = document.getElementById('doctors');
-      if (doctorsSection) {
-        const rect = doctorsSection.getBoundingClientRect();
-        // Only show CTAs when user has scrolled INTO the doctors section
-        // This means the top of the section is at or above the middle of the screen
-        const isInDoctorsSection = rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
-        setIsVisible(isInDoctorsSection);
+      
+      if (homeSection && doctorsSection) {
+        const homeRect = homeSection.getBoundingClientRect();
+        const doctorsRect = doctorsSection.getBoundingClientRect();
+        
+        // Show CTAs only when:
+        // 1. User has scrolled past the home section (home section top is above viewport)
+        // 2. AND the doctors section is visible or has been reached
+        const hasScrolledPastHome = homeRect.bottom < window.innerHeight * 0.5;
+        const isNearDoctorsSection = doctorsRect.top <= window.innerHeight;
+        
+        setIsVisible(hasScrolledPastHome && isNearDoctorsSection);
       }
     };
 
@@ -41,7 +48,7 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
 
   return (
     <div className="md:hidden fixed bottom-6 right-6 z-40 flex flex-col gap-3 animate-fade-in">
-      {/* WhatsApp CTA */}
+      {/* Order Medicine via WhatsApp */}
       <Button
         onClick={handleWhatsAppClick}
         className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-4 rounded-full animate-pulse"
@@ -50,16 +57,16 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
         <MessageCircle className="h-5 w-5" />
       </Button>
 
-      {/* Phone CTA */}
-      <Button
-        onClick={handlePhoneClick}
+      {/* Meet Our Doctors */}
+      <Button 
+        onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
         className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-4 rounded-full"
         size="lg"
       >
-        <Phone className="h-5 w-5" />
+        <Users className="h-5 w-5" />
       </Button>
 
-      {/* Book Appointment CTA */}
+      {/* Book Appointment Now */}
       <Button 
         onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
         className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-4 rounded-full animate-pulse"
