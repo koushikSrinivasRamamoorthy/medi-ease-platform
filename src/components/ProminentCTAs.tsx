@@ -14,8 +14,10 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
       const doctorsSection = document.getElementById('doctors');
       if (doctorsSection) {
         const rect = doctorsSection.getBoundingClientRect();
-        const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-        setIsVisible(isInView);
+        // Only show CTAs when user has scrolled INTO the doctors section
+        // This means the top of the section is at or above the middle of the screen
+        const isInDoctorsSection = rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+        setIsVisible(isInDoctorsSection);
       }
     };
 
