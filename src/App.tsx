@@ -352,7 +352,7 @@ const App = () => {
           </section>
 
           {/* Services Section */}
-          <section id="services" className="py-12 md:py-20">
+          <section id="services" className="py-8 md:py-20">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <header>
@@ -397,7 +397,7 @@ const App = () => {
           </section>
 
           {/* Location Section */}
-          <section id="location" className="py-20 bg-muted/30">
+          <section id="location" className="py-8 md:py-20 bg-muted/30">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <header>
