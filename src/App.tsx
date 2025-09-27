@@ -69,7 +69,7 @@ const App = () => {
     {
       name: "Dr. Aswin Pandian M.B.B.S.",
       specialty: "General Medicine", 
-      experience: "Family Doctor",
+      experience: "5+ years",
       education: "M.B.B.S.",
       specializations: ["Family Doctor", "Personalized Health Guidance"],
       availability: "8:00 am – 10:00 pm (Daily)",
@@ -113,7 +113,7 @@ const App = () => {
     {
       name: "Dr. S. Sriranjini M.D.",
       specialty: "Pediatrics",
-      experience: "5 years",
+      experience: "5+ years",
       education: "M.D. Paediatrics", 
       specializations: ["Kids Speciality", "Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
       availability: "4:00 pm – 9:00 pm (Daily)",
@@ -217,11 +217,7 @@ const App = () => {
             <div className="container mx-auto px-4 py-12 md:py-20">
               <div className="max-w-4xl mx-auto text-center">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                  <span className="block md:hidden">Sri Vaitheswara Clinic</span>
-                  <span className="hidden md:block">
-                    Sri Vaitheswara Clinic<br />
-                    (SVR Clinic)
-                  </span>
+                  Sri Vaitheswara Clinic
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in">
                   Your trusted family healthcare partner in Mayiladuthurai. Expert doctors, affordable treatments, and quality medicines for comprehensive medical care.
