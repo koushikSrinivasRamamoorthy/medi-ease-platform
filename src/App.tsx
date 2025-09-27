@@ -56,64 +56,70 @@ const App = () => {
 
   const doctors = [
     {
-      name: "Dr. Ramesh Babu M.S. ENT (Ear Nose Throat)",
+      name: "Dr. Ramesh Babu M.S.",
       specialty: "ENT (Ear Nose Throat)",
       experience: "15+ years",
       education: "Professor, Vilupuram Medical College",
       specializations: ["Ear", "Nose", "Throat"],
       availability: "4:00 pm – 09:00 pm (Mon, Wed, Sat)",
       location: "ENT Clinic",
-      calendlyUrl: "https://calendly.com/svrclinic-ent"
+      calendlyUrl: "https://calendly.com/svrclinic-ent",
+      fullNameWithSpecialty: "Dr. Ramesh Babu M.S. ENT"
     },
     {
-      name: "Dr. Aswin Pandian M.B.B.S. General Medicine",
+      name: "Dr. Aswin Pandian M.B.B.S.",
       specialty: "General Medicine", 
       experience: "Family Doctor",
       education: "M.B.B.S.",
       specializations: ["Family Doctor", "Personalized Health Guidance"],
       availability: "8:00 am – 10:00 pm (Daily)",
       location: "General Medicine",
-      calendlyUrl: "https://calendly.com/svrclinic-general"
+      calendlyUrl: "https://calendly.com/svrclinic-general",
+      fullNameWithSpecialty: "Dr. Aswin Pandian M.B.B.S. General Medicine"
     },
     {
-      name: "Dr. G. Balan MBBS, M.S. (General Surgery)",
+      name: "Dr. G. Balan M.S.",
       specialty: "General Surgery",
       experience: "5+ years", 
       education: "MBBS, M.S. (General Surgery)",
       specializations: ["Laparoscopy", "Endoscopy", "Varicose Vein", "Expert Care for Lumps & Swellings"],
       availability: "1:00 pm – 06:30 pm (Daily)",
       location: "Surgery Department",
-      calendlyUrl: "https://calendly.com/svrclinic-surgery"
+      calendlyUrl: "https://calendly.com/svrclinic-surgery",
+      fullNameWithSpecialty: "Dr. G. Balan MBBS, M.S. (General Surgery)"
     },
     {
-      name: "Dr. S. Giridharan M.D. D.M (Cardiology)",
+      name: "Dr. S. Giridharan M.D. D.M.",
       specialty: "Cardiology",
       experience: "10+ years",
       education: "Professor, Mahatma Gandhi Medical College", 
       specializations: ["Full Heart Check-up", "Chest Pain & Emergencies", "Heart Rhythm & Valve Issues"],
       availability: "Friday 9:00 am – 5:00 pm",
       location: "Cardiology Wing",
-      calendlyUrl: "https://calendly.com/svrclinic-cardiology"
+      calendlyUrl: "https://calendly.com/svrclinic-cardiology",
+      fullNameWithSpecialty: "Dr. S. Giridharan M.D. D.M (Cardiology)"
     },
     {
-      name: "Dr. D. Siddarth Munusamy MS.M.Ch (Urology)",
+      name: "Dr. D. Siddarth Munusamy M.Ch.",
       specialty: "Urology",
       experience: "10+ years",
       education: "MS.M.Ch (Urology)", 
       specializations: ["Kidney Stone", "Bladder & Urinary Problems", "Prostate Health", "Male Fertility Problems"],
       availability: "Monday 9:00 am – 5:00 pm",
       location: "Urology Department",
-      calendlyUrl: "https://calendly.com/svrclinic-urology"
+      calendlyUrl: "https://calendly.com/svrclinic-urology",
+      fullNameWithSpecialty: "Dr. D. Siddarth Munusamy MS.M.Ch (Urology)"
     },
     {
-      name: "Dr. S. Sriranjini M.D. Paediatrics (Kids Speciality)",
+      name: "Dr. S. Sriranjini M.D.",
       specialty: "Pediatrics",
       experience: "~5 years",
       education: "M.D. Paediatrics", 
       specializations: ["Kids Speciality", "Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
       availability: "4:00 pm – 9:00 pm (Daily)",
       location: "Pediatrics Wing",
-      calendlyUrl: "https://calendly.com/svrclinic-pediatrics"
+      calendlyUrl: "https://calendly.com/svrclinic-pediatrics",
+      fullNameWithSpecialty: "Dr. S. Sriranjini M.D. Paediatrics (Kids Speciality)"
     }
   ];
 
@@ -173,7 +179,7 @@ const App = () => {
     { icon: Phone, label: "Phone", value: "+91 77080 60368", href: "tel:+917708060368" },
     { icon: Mail, label: "Email", value: "sri.v.clinic@gmail.com", href: "mailto:sri.v.clinic@gmail.com" },
     { icon: MapPin, label: "Address", value: "Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India", href: "#location" },
-    { icon: Clock, label: "Hours", value: "Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-5PM", href: null }
+    { icon: Clock, label: "Hours", value: "Mon – Sun, 8:00 AM – 10:00 PM", href: null }
   ];
 
   const handleBookAppointment = (doctor?: typeof doctors[0]) => {
@@ -208,10 +214,14 @@ const App = () => {
           
           {/* Hero Section */}
           <section id="home" className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-            <div className="container mx-auto px-4 py-20">
+            <div className="container mx-auto px-4 py-12 md:py-20">
               <div className="max-w-4xl mx-auto text-center">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-                  Sri Vaitheswara Clinic (SVR Clinic)
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                  <span className="block md:hidden">Sri Vaitheswara Clinic</span>
+                  <span className="hidden md:block">
+                    Sri Vaitheswara Clinic<br />
+                    (SVR Clinic)
+                  </span>
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in">
                   Your trusted family healthcare partner in Mayiladuthurai. Expert doctors, affordable treatments, and quality medicines for comprehensive medical care.
@@ -282,7 +292,7 @@ const App = () => {
                           <p><strong>Education:</strong> {doctor.education}</p>
                           <p><strong>Available:</strong> {doctor.availability}</p>
                         </div>
-                        <div>
+                        <div className="min-h-[72px]">
                           <h4 className="font-medium mb-2">Specializations:</h4>
                           <div className="flex flex-wrap gap-1">
                             {doctor.specializations.map((spec, i) => (
@@ -291,7 +301,7 @@ const App = () => {
                           </div>
                         </div>
                         <Button 
-                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.name.split(' ')[1] + ' ' + doctor.name.split(' ')[2])}`, '_blank')}
+                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
                           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         >
                           <MessageCircle className="mr-2 h-4 w-4" />
@@ -322,7 +332,7 @@ const App = () => {
                           <p><strong>Education:</strong> {doctor.education}</p>
                           <p><strong>Available:</strong> {doctor.availability}</p>
                         </div>
-                        <div>
+                        <div className="min-h-[72px]">
                           <h4 className="font-medium mb-2">Specializations:</h4>
                           <div className="flex flex-wrap gap-1">
                             {doctor.specializations.map((spec, i) => (
@@ -331,7 +341,7 @@ const App = () => {
                           </div>
                         </div>
                         <Button 
-                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.name.split(' ')[1] + ' ' + doctor.name.split(' ')[2])}`, '_blank')}
+                          onClick={() => window.open(`https://wa.me/917708060368?text=I%20want%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
                           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         >
                           <MessageCircle className="mr-2 h-4 w-4" />
@@ -357,7 +367,7 @@ const App = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
                 {services.map((service, index) => {
                   const IconComponent = service.icon;
                   return (
@@ -370,8 +380,8 @@ const App = () => {
                           />
                           <Badge className="bg-accent text-accent-foreground">{service.badge}</Badge>
                         </div>
-                        <CardTitle className="text-xl">{service.title}</CardTitle>
-                        <CardDescription>{service.description}</CardDescription>
+                        <CardTitle className="text-base md:text-xl">{service.title}</CardTitle>
+                        <CardDescription className="hidden md:block">{service.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <ul className="space-y-2">
@@ -491,7 +501,7 @@ const App = () => {
                   Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India
                 </p>
                 <p className="text-primary-foreground/60 text-sm">
-                  © 2025 Farmlysoftware Pvt. Ltd. All rights reserved.
+                  © 2025 <a href="https://www.farmlysoftware.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground underline">Farmlysoftware Pvt. Ltd.</a> All rights reserved.
                 </p>
               </div>
             </div>
