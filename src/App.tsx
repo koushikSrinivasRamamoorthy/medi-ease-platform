@@ -160,9 +160,9 @@ const App = () => {
   ];
 
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: Mail, label: "Email", value: "info@medicare.com", href: "mailto:info@medicare.com" },
-    { icon: MapPin, label: "Address", value: "123 Healthcare Blvd, Medical City, MC 12345", href: "#location" },
+    { icon: Phone, label: "Phone", value: "+91 77080 6036", href: "tel:+917708060362" },
+    { icon: Mail, label: "Email", value: "info@svrclinic.com", href: "mailto:info@svrclinic.com" },
+    { icon: MapPin, label: "Address", value: "Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India", href: "#location" },
     { icon: Clock, label: "Hours", value: "Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-5PM", href: null }
   ];
 
@@ -201,14 +201,14 @@ const App = () => {
             <div className="container mx-auto px-4 py-20">
               <div className="max-w-4xl mx-auto text-center">
                 <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-                  Your Health, Our Priority
+                  Sri Vaitheswara Clinic (SVR Clinic)
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in">
                   Experience world-class healthcare with our team of expert doctors. Book appointments online, get WhatsApp consultations, and order medicines with home delivery.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button 
-                    onClick={() => handleBookAppointment()}
+                    onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
                     size="lg" 
                     className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 h-auto"
                   >
@@ -228,29 +228,6 @@ const App = () => {
               </div>
             </div>
             
-            {/* Stats Section */}
-            <div className="bg-primary-foreground/10 backdrop-blur-sm">
-              <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                  <div>
-                    <div className="text-3xl md:text-4xl font-bold mb-2">10,000+</div>
-                    <div className="text-primary-foreground/80">Patients Served</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl md:text-4xl font-bold mb-2">98%</div>
-                    <div className="text-primary-foreground/80">Satisfaction Rate</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl md:text-4xl font-bold mb-2">5</div>
-                    <div className="text-primary-foreground/80">Expert Doctors</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl md:text-4xl font-bold mb-2">24/7</div>
-                    <div className="text-primary-foreground/80">Emergency Care</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
 
           {/* Doctors Section */}
@@ -263,41 +240,81 @@ const App = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {doctors.map((doctor, index) => (
-                  <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-                    <CardHeader className="text-center">
-                      <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <Stethoscope className="h-12 w-12 text-primary" />
-                      </div>
-                      <CardTitle className="text-xl">{doctor.name}</CardTitle>
-                      <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="space-y-2 text-sm">
-                        <p><strong>Experience:</strong> {doctor.experience}</p>
-                        <p><strong>Education:</strong> {doctor.education}</p>
-                        <p><strong>Location:</strong> {doctor.location}</p>
-                        <p><strong>Available:</strong> {doctor.availability}</p>
-                      </div>
-                      <div>
-                        <h4 className="font-medium mb-2">Specializations:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {doctor.specializations.map((spec, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">{spec}</Badge>
-                          ))}
+              {/* Inverted triangle layout: 3 cards on top row, 2 centered on bottom */}
+              <div className="max-w-6xl mx-auto">
+                {/* First row - 3 doctors */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                  {doctors.slice(0, 3).map((doctor, index) => (
+                    <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                      <CardHeader className="text-center">
+                        <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <Stethoscope className="h-12 w-12 text-primary" />
                         </div>
-                      </div>
-                      <Button 
-                        onClick={() => handleBookAppointment(doctor)}
-                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                      >
-                        <Calendar className="mr-2 h-4 w-4" />
-                        Book Appointment
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
+                        <CardTitle className="text-xl">{doctor.name}</CardTitle>
+                        <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="space-y-2 text-sm">
+                          <p><strong>Experience:</strong> {doctor.experience}</p>
+                          <p><strong>Education:</strong> {doctor.education}</p>
+                          <p><strong>Available:</strong> {doctor.availability}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-medium mb-2">Specializations:</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {doctor.specializations.map((spec, i) => (
+                              <Badge key={i} variant="secondary" className="text-xs">{spec}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <Button 
+                          onClick={() => handleBookAppointment(doctor)}
+                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                        >
+                          <Calendar className="mr-2 h-4 w-4" />
+                          Book Appointment
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+                
+                {/* Second row - 2 doctors centered */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {doctors.slice(3, 5).map((doctor, index) => (
+                    <Card key={index + 3} className="group hover:shadow-lg transition-all duration-300">
+                      <CardHeader className="text-center">
+                        <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <Stethoscope className="h-12 w-12 text-primary" />
+                        </div>
+                        <CardTitle className="text-xl">{doctor.name}</CardTitle>
+                        <CardDescription className="text-primary font-medium">{doctor.specialty}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="space-y-2 text-sm">
+                          <p><strong>Experience:</strong> {doctor.experience}</p>
+                          <p><strong>Education:</strong> {doctor.education}</p>
+                          <p><strong>Available:</strong> {doctor.availability}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-medium mb-2">Specializations:</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {doctor.specializations.map((spec, i) => (
+                              <Badge key={i} variant="secondary" className="text-xs">{spec}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <Button 
+                          onClick={() => handleBookAppointment(doctor)}
+                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                        >
+                          <Calendar className="mr-2 h-4 w-4" />
+                          Book Appointment
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -326,7 +343,7 @@ const App = () => {
                         <CardDescription>{service.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2 mb-4">
+                        <ul className="space-y-2">
                           {service.features.map((feature, i) => (
                             <li key={i} className="flex items-center text-sm">
                               <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
@@ -334,121 +351,44 @@ const App = () => {
                             </li>
                           ))}
                         </ul>
-                        <Button 
-                          onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
-                          variant="outline" 
-                          className="w-full"
-                        >
-                          Book Consultation
-                        </Button>
                       </CardContent>
                     </Card>
                   );
                 })}
               </div>
-
-              {/* Facilities */}
-              <div className="bg-muted/30 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-center mb-8">Facilities & Support Services</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {facilities.map((facility, index) => {
-                    const IconComponent = facility.icon;
-                    return (
-                      <div key={index} className="text-center">
-                        <IconComponent className="h-12 w-12 text-primary mx-auto mb-3" />
-                        <h4 className="font-semibold mb-2">{facility.title}</h4>
-                        <p className="text-sm text-muted-foreground">{facility.description}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
           </section>
 
-          {/* Contact Section */}
-          <section id="contact" className="py-20 bg-muted/30">
+          {/* Location Section */}
+          <section id="location" className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+                <h2 className="text-4xl font-bold mb-4">Visit Our Clinic</h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Ready to book your appointment? Contact us through any of the convenient methods below.
+                  Conveniently located in Mayiladuthurai with easy access and ample parking.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                {/* Contact Form */}
+                {/* Google Map */}
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Book Your Appointment</CardTitle>
-                    <CardDescription>Fill out the form and we'll get back to you within 24 hours</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Input
-                          placeholder="Full Name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          required
-                        />
-                        <Input
-                          type="email"
-                          placeholder="Email Address"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <Input
-                        type="tel"
-                        placeholder="Phone Number"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        required
-                      />
-                      <Select onValueChange={(value) => handleInputChange('service', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select Service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {services.map((service) => (
-                            <SelectItem key={service.title} value={service.title}>
-                              {service.title}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Input
-                          type="date"
-                          value={formData.date}
-                          onChange={(e) => handleInputChange('date', e.target.value)}
-                          required
-                        />
-                        <Select onValueChange={(value) => handleInputChange('time', value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Preferred Time" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="9:00 AM">9:00 AM</SelectItem>
-                            <SelectItem value="11:00 AM">11:00 AM</SelectItem>
-                            <SelectItem value="2:00 PM">2:00 PM</SelectItem>
-                            <SelectItem value="4:00 PM">4:00 PM</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <Textarea
-                        placeholder="Additional message or specific concerns..."
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        rows={4}
-                      />
-                      <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                        <Calendar className="mr-2 h-4 w-4" />
-                        Submit Appointment Request
+                  <CardContent className="p-0">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.1636496821343!2d79.64969647561085!3d11.101178389068064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a55211c97157d45%3A0xf89a4bef459ed673!2sSri%20Vaitheswara%20Clinic!5e0!3m2!1sen!2sde!4v1758693593697!5m2!1sen!2sde" 
+                      width="100%" 
+                      height="450" 
+                      style={{border:0}} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="rounded-t-lg"
+                    />
+                    <div className="p-6">
+                      <Button className="w-full" variant="outline">
+                        <MapPin className="mr-2 h-4 w-4" />
+                        Get Directions
                       </Button>
-                    </form>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -485,7 +425,7 @@ const App = () => {
                           <p className="text-white/90 text-sm">Order medicines and get instant consultation via WhatsApp</p>
                         </div>
                         <Button 
-                          onClick={() => window.open('https://wa.me/1234567890?text=Hi! I would like to order medicines.', '_blank')}
+                          onClick={() => window.open('https://wa.me/917708060362?text=Hi! I would like to order medicines.', '_blank')}
                           variant="secondary"
                           className="bg-white text-[#25D366] hover:bg-white/90"
                         >
@@ -499,128 +439,58 @@ const App = () => {
             </div>
           </section>
 
-          {/* Location Section */}
-          <section id="location" className="py-20">
+          {/* Footer */}
+          <footer className="bg-primary text-primary-foreground py-8">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Visit Our Clinic</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Conveniently located in the heart of Medical City with easy access and ample parking.
+              <div className="text-center">
+                <div className="flex items-center justify-center space-x-2 mb-4">
+                  <div className="h-8 w-8 bg-primary-foreground rounded-full flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">SVR</span>
+                  </div>
+                  <span className="font-bold text-xl">Sri Vaitheswara Clinic (SVR Clinic)</span>
+                </div>
+                <p className="text-primary-foreground/80 mb-4">
+                  Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India
+                </p>
+                <p className="text-primary-foreground/60 text-sm">
+                  © 2025 Farmlysoftware Pvt. Ltd. All rights reserved.
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                {/* Map Placeholder */}
-                <Card>
-                  <CardContent className="p-0">
-                    <div className="w-full h-96 bg-muted flex items-center justify-center rounded-t-lg">
-                      <div className="text-center">
-                        <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                        <p className="text-muted-foreground">Interactive Google Map</p>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          123 Healthcare Blvd, Medical City, MC 12345
-                        </p>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <Button className="w-full" variant="outline">
-                        <MapPin className="mr-2 h-4 w-4" />
-                        Get Directions
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Transportation & Facilities */}
-                <div className="space-y-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Transportation Options</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="flex items-center space-x-2">
-                          <Car className="h-5 w-5 text-primary" />
-                          <span className="text-sm">Free Parking</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Bus className="h-5 w-5 text-primary" />
-                          <span className="text-sm">Bus Routes 12, 45</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Train className="h-5 w-5 text-primary" />
-                          <span className="text-sm">Metro: Health Station</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Plane className="h-5 w-5 text-primary" />
-                          <span className="text-sm">15 min from Airport</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Facility Features</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        <li className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="text-sm">Wheelchair Accessible</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="text-sm">On-site Pharmacy</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="text-sm">Free WiFi</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="text-sm">Cafeteria & Gift Shop</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="text-sm">24/7 Security</span>
-                        </li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Operating Hours</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span>Monday - Friday</span>
-                          <span className="font-medium">8:00 AM - 8:00 PM</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Saturday</span>
-                          <span className="font-medium">9:00 AM - 5:00 PM</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Sunday</span>
-                          <span className="font-medium">10:00 AM - 4:00 PM</span>
-                        </div>
-                        <div className="flex justify-between border-t pt-2 mt-4">
-                          <span className="text-red-600">Emergency</span>
-                          <span className="font-medium text-red-600">24/7 Available</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
             </div>
-          </section>
+          </footer>
 
           {/* Prominent CTAs */}
-          <ProminentCTAs onBookAppointment={() => handleBookAppointment()} />
+          <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 md:flex-row">
+            {/* WhatsApp CTA */}
+            <Button
+              onClick={() => window.open('https://wa.me/917708060362?text=Hi! I would like to book an appointment and order medicines.', '_blank')}
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-6 rounded-full animate-pulse"
+              size="lg"
+            >
+              <MessageCircle className="h-5 w-5 md:mr-2" />
+              <span className="hidden md:inline">Order Medicine via WhatsApp</span>
+            </Button>
+
+            {/* Phone CTA */}
+            <Button
+              onClick={() => window.location.href = "tel:+917708060362"}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-6 rounded-full"
+              size="lg"
+            >
+              <Phone className="h-5 w-5 md:mr-2" />
+              <span className="hidden md:inline">Call Now</span>
+            </Button>
+
+            {/* Book Appointment CTA */}
+            <Button 
+              onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
+              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-6 rounded-full animate-pulse"
+              size="lg"
+            >
+              <Calendar className="h-5 w-5 md:mr-2" />
+              <span className="hidden md:inline">Book Appointment</span>
+            </Button>
+          </div>
 
           {/* Calendly Modal */}
           <CalendlyModal

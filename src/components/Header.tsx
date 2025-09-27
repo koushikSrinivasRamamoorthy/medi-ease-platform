@@ -27,9 +27,9 @@ const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <button onClick={() => scrollToSection('home')} className="flex items-center space-x-2">
           <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">MC</span>
+            <span className="text-primary-foreground font-bold text-sm">SVR</span>
           </div>
-          <span className="font-bold text-xl">MediCare</span>
+          <span className="font-bold text-xl">SVR Clinic</span>
         </button>
 
         {/* Desktop Navigation */}
@@ -49,11 +49,11 @@ const Header = () => {
         <div className="hidden lg:flex items-center space-x-4">
           <div className="flex items-center space-x-1 text-sm text-muted-foreground">
             <Phone className="h-4 w-4" />
-            <span>+1 (555) 123-4567</span>
+            <span>+91 77080 6036</span>
           </div>
           <div className="flex items-center space-x-1 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
-            <span>123 Health St</span>
+            <span>Mayiladuthurai, TN</span>
           </div>
         </div>
 
@@ -68,9 +68,9 @@ const Header = () => {
           <SheetContent side="right" className="w-80">
             <div className="flex items-center space-x-2 mb-6">
               <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">MC</span>
+                <span className="text-primary-foreground font-bold text-sm">SVR</span>
               </div>
-              <span className="font-bold text-xl">MediCare</span>
+              <span className="font-bold text-xl">SVR Clinic</span>
             </div>
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
@@ -86,11 +86,11 @@ const Header = () => {
             <div className="mt-6 pt-6 border-t">
               <div className="flex items-center space-x-1 text-sm text-muted-foreground mb-2">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 77080 6036</span>
               </div>
               <div className="flex items-center space-x-1 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>123 Health St</span>
+                <span>Mayiladuthurai, TN</span>
               </div>
             </div>
           </SheetContent>
