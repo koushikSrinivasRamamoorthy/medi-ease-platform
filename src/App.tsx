@@ -1,11 +1,21 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SEO } from "@/components/SEO";
 import Header from "./components/Header";
 import ProminentCTAs from "./components/ProminentCTAs";
 import CalendlyModal from "./components/CalendlyModal";
+import Doctors from "./pages/Doctors";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
+import LocationPage from "./pages/LocationPage";
+import AboutPage from "./pages/AboutPage";
+
+// Alias for cleaner code
+const DoctorsPage = Doctors;
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -204,13 +214,16 @@ const App = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="min-h-screen bg-background">
-          <Header />
+  // HomePage component (full single-page layout)
+  const HomePage = () => (
+    <>
+      <SEO 
+        title="SVR Clinic – Trusted Medical Care in Mayiladuthurai, Tamil Nadu"
+        description="Visit SVR Clinic in Mayiladuthurai, Tamil Nadu for compassionate, reliable healthcare. Our experienced doctors provide personalized treatment and preventive care for your family's well-being."
+        canonical="/"
+        keywords="SVR Clinic, Sri Vaitheswara Clinic, medical clinic Mayiladuthurai, doctors Mayiladuthurai, healthcare Tamil Nadu, family clinic, affordable treatment Mayiladuthurai"
+      />
+      <div className="min-h-screen bg-background">
           
           {/* Hero Section */}
           <section id="home" className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
@@ -483,69 +496,89 @@ const App = () => {
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="bg-primary text-primary-foreground py-8">
-            <div className="container mx-auto px-4">
-              <div className="text-center">
-                <div className="flex items-center justify-center space-x-2 mb-4">
-                  <div className="h-8 w-8 bg-primary-foreground rounded-full flex items-center justify-center">
-                    <span className="text-primary font-bold text-sm">SVR</span>
-                  </div>
-                  <span className="font-bold text-xl">Sri Vaitheswara Clinic (SVR Clinic)</span>
-                </div>
-                <p className="text-primary-foreground/80 mb-4">
-                  Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India
-                </p>
-                <p className="text-primary-foreground/60 text-sm">
-                  © 2025 <a href="https://www.farmlysoftware.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground underline">Farmlysoftware Pvt. Ltd.</a> All rights reserved.
-                </p>
+      {/* Footer */}
+      <footer className="bg-primary text-primary-foreground py-8">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="h-8 w-8 bg-primary-foreground rounded-full flex items-center justify-center">
+                <span className="text-primary font-bold text-sm">SVR</span>
               </div>
+              <span className="font-bold text-xl">Sri Vaitheswara Clinic (SVR Clinic)</span>
             </div>
-          </footer>
-
-          {/* Prominent CTAs - Vertical on Desktop */}
-          <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-            {/* WhatsApp CTA */}
-            <Button
-              onClick={() => window.open('https://wa.me/917708060368?text=Hi! I would like to book an appointment and order medicines.', '_blank')}
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-6 rounded-full animate-pulse"
-              size="lg"
-            >
-              <MessageCircle className="h-5 w-5 md:mr-2" />
-              <span className="hidden md:inline">Order Medicine via WhatsApp</span>
-            </Button>
-
-            {/* Phone CTA */}
-            <Button
-              onClick={() => window.location.href = "tel:+917708060368"}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-6 rounded-full"
-              size="lg"
-            >
-              <Phone className="h-5 w-5 md:mr-2" />
-              <span className="hidden md:inline">Call Now</span>
-            </Button>
-
-            {/* Book Appointment CTA */}
-            <Button 
-              onClick={() => document.getElementById('doctors')?.scrollIntoView({behavior: 'smooth'})}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-6 rounded-full animate-pulse"
-              size="lg"
-            >
-              <Calendar className="h-5 w-5 md:mr-2" />
-              <span className="hidden md:inline">Book Appointment</span>
-            </Button>
+            <p className="text-primary-foreground/80 mb-4">
+              Pattamangala St, Pasupathi Street, Kamarajar Salai, Mayiladuthurai, Tamil Nadu 609001, India
+            </p>
+            <p className="text-primary-foreground/60 text-sm">
+              © 2025 <a href="https://www.farmlysoftware.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground underline">Farmlysoftware Pvt. Ltd.</a> All rights reserved.
+            </p>
           </div>
-
-          {/* Calendly Modal */}
-          <CalendlyModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            doctorName={selectedDoctor?.name || ""}
-            calendlyUrl={selectedDoctor?.calendlyUrl || ""}
-          />
         </div>
-      </TooltipProvider>
-    </QueryClientProvider>
+      </footer>
+
+      {/* Prominent CTAs - Vertical on Desktop */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        {/* WhatsApp CTA */}
+        <Button
+          onClick={() => window.open("https://wa.me/917708060368?text=Hi! I would like to book an appointment and order medicines.", "_blank")}
+          className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-6 rounded-full animate-pulse"
+          size="lg"
+        >
+          <MessageCircle className="h-5 w-5 md:mr-2" />
+          <span className="hidden md:inline">Order Medicine via WhatsApp</span>
+        </Button>
+
+        {/* Phone CTA */}
+        <Button
+          onClick={() => window.location.href = "tel:+917708060368"}
+          className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg h-14 px-6 rounded-full"
+          size="lg"
+        >
+          <Phone className="h-5 w-5 md:mr-2" />
+          <span className="hidden md:inline">Call Now</span>
+        </Button>
+
+        {/* Book Appointment CTA */}
+        <Button 
+          onClick={() => document.getElementById("doctors")?.scrollIntoView({behavior: "smooth"})}
+          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-6 rounded-full animate-pulse"
+          size="lg"
+        >
+          <Calendar className="h-5 w-5 md:mr-2" />
+          <span className="hidden md:inline">Book Appointment</span>
+        </Button>
+      </div>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        doctorName={selectedDoctor?.name || ""}
+        calendlyUrl={selectedDoctor?.calendlyUrl || ""}
+      />
+      </div>
+    </>
+  );
+
+  return (
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/doctors" element={<DoctorsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/location" element={<LocationPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 };
 

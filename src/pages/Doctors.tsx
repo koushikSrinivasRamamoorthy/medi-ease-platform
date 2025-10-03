@@ -1,173 +1,179 @@
+import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
-import { Calendar, Award, Clock, MapPin } from "lucide-react";
+import { Stethoscope, MessageCircle } from "lucide-react";
 
 const Doctors = () => {
   const doctors = [
     {
-      id: 1,
-      name: "Dr. Sarah Johnson",
-      specialty: "Cardiologist",
+      name: "Dr. Ramesh Babu M.S.",
+      specialty: "ENT (Ear Nose Throat)",
       experience: "15+ years",
-      education: "Harvard Medical School",
-      image: "/api/placeholder/300/400",
-      specializations: ["Heart Surgery", "Preventive Cardiology", "Heart Disease"],
-      availability: "Mon - Fri: 9:00 AM - 5:00 PM",
-      location: "Cardiology Wing - Floor 2"
+      education: "Professor, Vilupuram Medical College",
+      specializations: ["Ear", "Nose", "Throat"],
+      availability: "4:00 pm – 09:00 pm (Mon, Wed, Sat)",
+      location: "ENT Clinic",
+      fullNameWithSpecialty: "Dr. Ramesh Babu M.S. ENT"
     },
     {
-      id: 2,
-      name: "Dr. Michael Chen",
-      specialty: "Neurologist",
-      experience: "12+ years",
-      education: "Johns Hopkins University",
-      image: "/api/placeholder/300/400",
-      specializations: ["Brain Surgery", "Stroke Treatment", "Epilepsy"],
-      availability: "Tue - Sat: 10:00 AM - 6:00 PM",
-      location: "Neurology Department - Floor 3"
+      name: "Dr. Aswin Pandian M.B.B.S.",
+      specialty: "General Medicine", 
+      experience: "5+ years",
+      education: "M.B.B.S.",
+      specializations: ["Family Doctor", "Personalized Health Guidance"],
+      availability: "8:00 am – 10:00 pm (Daily)",
+      location: "General Medicine",
+      fullNameWithSpecialty: "Dr. Aswin Pandian M.B.B.S. General Medicine"
     },
     {
-      id: 3,
-      name: "Dr. Emily Rodriguez",
-      specialty: "Pediatrician",
+      name: "Dr. G. Balan M.S.",
+      specialty: "General Surgery",
+      experience: "5+ years", 
+      education: "MBBS, M.S. (General Surgery)",
+      specializations: ["Laparoscopy", "Endoscopy", "Varicose Vein", "Expert Care for Lumps & Swellings"],
+      availability: "1:00 pm – 06:30 pm (Daily)",
+      location: "Surgery Department",
+      fullNameWithSpecialty: "Dr. G. Balan MBBS, M.S. (General Surgery)"
+    },
+    {
+      name: "Dr. S. Giridharan M.D. D.M.",
+      specialty: "Cardiology",
       experience: "10+ years",
-      education: "Stanford Medical School",
-      image: "/api/placeholder/300/400",
-      specializations: ["Child Development", "Vaccinations", "Pediatric Care"],
-      availability: "Mon - Thu: 8:00 AM - 4:00 PM",
-      location: "Pediatrics Wing - Floor 1"
+      education: "Professor, Mahatma Gandhi Medical College", 
+      specializations: ["Full Heart Check-up", "Chest Pain & Emergencies", "Heart Rhythm & Valve Issues"],
+      availability: "Friday 9:00 am – 5:00 pm",
+      location: "Cardiology Wing",
+      fullNameWithSpecialty: "Dr. S. Giridharan M.D. D.M (Cardiology)"
     },
     {
-      id: 4,
-      name: "Dr. David Wilson",
-      specialty: "Orthopedic Surgeon",
-      experience: "18+ years",
-      education: "Mayo Clinic College",
-      image: "/api/placeholder/300/400",
-      specializations: ["Joint Replacement", "Sports Medicine", "Trauma Surgery"],
-      availability: "Mon - Fri: 7:00 AM - 3:00 PM",
-      location: "Orthopedics Department - Floor 2"
+      name: "Dr. D. Siddarth Munusamy M.Ch.",
+      specialty: "Urology",
+      experience: "10+ years",
+      education: "MS.M.Ch (Urology)", 
+      specializations: ["Kidney Stone", "Bladder & Urinary Problems", "Prostate Health", "Male Fertility Problems"],
+      availability: "Monday 9:00 am – 5:00 pm",
+      location: "Urology Department",
+      fullNameWithSpecialty: "Dr. D. Siddarth Munusamy MS.M.Ch (Urology)"
     },
     {
-      id: 5,
-      name: "Dr. Lisa Thompson",
-      specialty: "Dermatologist",
-      experience: "8+ years",
-      education: "UCLA Medical School",
-      image: "/api/placeholder/300/400",
-      specializations: ["Skin Cancer", "Cosmetic Dermatology", "Acne Treatment"],
-      availability: "Wed - Sun: 11:00 AM - 7:00 PM",
-      location: "Dermatology Clinic - Floor 1"
-    },
-    {
-      id: 6,
-      name: "Dr. Robert Kumar",
-      specialty: "Internal Medicine",
-      experience: "20+ years",
-      education: "Cleveland Clinic",
-      image: "/api/placeholder/300/400",
-      specializations: ["Diabetes Care", "Hypertension", "Preventive Medicine"],
-      availability: "Mon - Sat: 9:00 AM - 5:00 PM",
-      location: "Internal Medicine - Floor 2"
+      name: "Dr. S. Sriranjini M.D.",
+      specialty: "Pediatrics",
+      experience: "5+ years",
+      education: "M.D. Paediatrics", 
+      specializations: ["Kids Speciality", "Complete Child Check-ups", "Vaccinations & Immunizations", "Childhood Illnesses", "Child Friendly Care"],
+      availability: "4:00 pm – 9:00 pm (Daily)",
+      location: "Pediatrics Wing",
+      fullNameWithSpecialty: "Dr. S. Sriranjini M.D. Paediatrics (Kids Speciality)"
     }
   ];
 
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-                      <div className="text-center mb-16">
-                <header>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                    Meet Our Doctors – Sri Vaitheswara Clinic, 
-                    <span className="text-primary"> Mayiladuthurai</span>
-                  </h1>
-                </header>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Book an appointment with experienced doctors at SVR Clinic, Mayiladuthurai. 
-                  Personalized care, affordable treatment, and trusted healthcare services for your family.
-                </p>
-              </div>
+    <>
+      <SEO 
+        title="Meet Our Doctors – Experienced Physicians in Mayiladuthurai, Tamil Nadu"
+        description="Get to know SVR Clinic's team of dedicated doctors in Mayiladuthurai, Tamil Nadu. With expertise across specialties and a patient-first approach, we ensure you receive trusted, quality care."
+        canonical="/doctors"
+        keywords="doctors Mayiladuthurai, ENT specialist Mayiladuthurai, cardiologist Mayiladuthurai, pediatrician Mayiladuthurai, urologist Mayiladuthurai, general surgeon Mayiladuthurai, SVR Clinic doctors"
+      />
+      
+      <div className="min-h-screen py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <header>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Meet Our Expert Doctors
+              </h1>
+            </header>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our team of highly qualified medical professionals is dedicated to providing you with the best healthcare experience in Mayiladuthurai, Tamil Nadu.
+            </p>
+          </div>
 
-        {/* Doctors Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {doctors.map((doctor) => (
-            <Card key={doctor.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-[3/4] bg-gradient-to-br from-secondary/50 to-primary/10 flex items-center justify-center">
-                <div className="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center">
-                  <Award 
-                    className="w-16 h-16 text-primary" 
-                    aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
-                  />
-                </div>
-              </div>
-              
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{doctor.name}</h3>
-                    <p className="text-primary font-semibold">{doctor.specialty}</p>
-                  </div>
-                  <Badge variant="secondary">{doctor.experience}</Badge>
-                </div>
-                <p className="text-sm text-muted-foreground">{doctor.education}</p>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2 text-sm">Specializations</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {doctor.specializations.map((spec, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {spec}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 mr-2" />
-                    {doctor.availability}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    {doctor.location}
-                  </div>
-                </div>
-
-                <Button className="w-full" asChild>
-                  <Link to="/contact">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Book Appointment
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-secondary/30 rounded-lg p-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Can't Find the Right Specialist?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Our medical team includes many more specialists. Contact us to discuss your specific needs 
-            and we'll connect you with the right healthcare professional.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/services">View All Services</Link>
-            </Button>
+          <div className="max-w-6xl mx-auto">
+            {/* First row - 3 doctors */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              {doctors.slice(0, 3).map((doctor, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                  <CardHeader className="text-center">
+                    <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <Stethoscope 
+                        className="h-12 w-12 text-primary" 
+                        aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
+                      />
+                    </div>
+                    <h2 className="text-xl font-bold">{doctor.name}</h2>
+                    <p className="text-primary font-medium">{doctor.specialty}</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2 text-sm">
+                      <p><strong>Experience:</strong> {doctor.experience}</p>
+                      <p><strong>Education:</strong> {doctor.education}</p>
+                      <p><strong>Available:</strong> {doctor.availability}</p>
+                    </div>
+                    <div className="min-h-[72px]">
+                      <h3 className="font-medium mb-2">Specializations:</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {doctor.specializations.map((spec, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs">{spec}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <Button 
+                      onClick={() => window.open(`https://wa.me/917708060368?text=I want to book an appointment with ${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Book via WhatsApp
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            {/* Second row - 3 doctors */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {doctors.slice(3, 6).map((doctor, index) => (
+                <Card key={index + 3} className="group hover:shadow-lg transition-all duration-300">
+                  <CardHeader className="text-center">
+                    <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <Stethoscope 
+                        className="h-12 w-12 text-primary" 
+                        aria-label={`Portrait of ${doctor.name}, medical specialist at Sri Vaitheswara Clinic Mayiladuthurai`}
+                      />
+                    </div>
+                    <h2 className="text-xl font-bold">{doctor.name}</h2>
+                    <p className="text-primary font-medium">{doctor.specialty}</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2 text-sm">
+                      <p><strong>Experience:</strong> {doctor.experience}</p>
+                      <p><strong>Education:</strong> {doctor.education}</p>
+                      <p><strong>Available:</strong> {doctor.availability}</p>
+                    </div>
+                    <div className="min-h-[72px]">
+                      <h3 className="font-medium mb-2">Specializations:</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {doctor.specializations.map((spec, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs">{spec}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <Button 
+                      onClick={() => window.open(`https://wa.me/917708060368?text=I want to book an appointment with ${encodeURIComponent(doctor.fullNameWithSpecialty)}. Please call me back to schedule an appointment.`, '_blank')}
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Book via WhatsApp
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
