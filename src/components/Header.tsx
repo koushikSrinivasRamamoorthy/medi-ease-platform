@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, MapPin } from "lucide-react";
@@ -7,36 +6,41 @@ import { Menu, Phone, MapPin } from "lucide-react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/doctors", label: "Doctors" },
-    { path: "/services", label: "Services" },
-    { path: "/contact", label: "Contact" },
-    { path: "/location", label: "Location" },
-    { path: "/about", label: "About" },
+    { id: "home", label: "Home" },
+    { id: "doctors", label: "Our Doctors" },
+    { id: "services", label: "Services" },
+    { id: "location", label: "Location" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+        <button onClick={() => scrollToSection('home')} className="flex items-center space-x-2">
           <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-sm">SVR</span>
           </div>
-          <span className="font-bold text-xl hidden md:inline">Sri Vaitheswara Clinic</span>
-          <span className="font-bold text-xl md:hidden">SVR Clinic</span>
-        </Link>
+          <span className="font-bold text-xl">SVR Clinic</span>
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
               className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
             >
               {item.label}
-            </Link>
+            </button>
           ))}
         </nav>
 
@@ -46,10 +50,13 @@ const Header = () => {
             <Phone className="h-4 w-4" />
             <span>+91 77080 60368</span>
           </a>
-          <Link to="/location" className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors">
+          <button 
+            onClick={() => scrollToSection('location')}
+            className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
             <MapPin className="h-4 w-4" />
             <span>Mayiladuthurai, TN</span>
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -69,14 +76,13 @@ const Header = () => {
             </div>
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
                   className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground text-left"
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
             </nav>
             <div className="mt-6 pt-6 border-t">
@@ -84,10 +90,13 @@ const Header = () => {
                 <Phone className="h-4 w-4" />
                 <span>+91 77080 60368</span>
               </a>
-              <Link to="/location" className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors text-left">
+              <button 
+                onClick={() => scrollToSection('location')}
+                className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+              >
                 <MapPin className="h-4 w-4" />
                 <span>Mayiladuthurai, TN</span>
-              </Link>
+              </button>
             </div>
           </SheetContent>
         </Sheet>
