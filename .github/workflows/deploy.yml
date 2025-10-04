@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Pre-render pages
+        run: node prerender.js
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
