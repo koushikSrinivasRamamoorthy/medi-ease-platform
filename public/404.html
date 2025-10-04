@@ -119,10 +119,18 @@
     
     <!-- GitHub Pages SPA redirect script -->
     <script>
-      // Store the path for the SPA router
-      sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
+      // Don't redirect static files like sitemap.xml, robots.txt, etc.
+      const path = window.location.pathname;
+      const staticFileExtensions = ['.xml', '.txt', '.pdf', '.json', '.ico', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'];
+      const isStaticFile = staticFileExtensions.some(ext => path.endsWith(ext));
+      
+      if (!isStaticFile) {
+        // Store the path for the SPA router
+        sessionStorage.setItem('redirectPath', path + window.location.search + window.location.hash);
+        // Redirect to root for SPA routing
+        window.location.replace('/');
+      }
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'">
   </head>
 
   <body>
