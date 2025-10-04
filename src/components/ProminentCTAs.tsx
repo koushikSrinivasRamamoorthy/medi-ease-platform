@@ -51,7 +51,7 @@ const ProminentCTAs: React.FC<ProminentCTAsProps> = ({ onBookAppointment }) => {
       {/* Order Medicine via WhatsApp */}
       <Button
         onClick={handleWhatsAppClick}
-        className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-4 rounded-full animate-pulse"
+        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-4 rounded-full animate-pulse"
         size="lg"
       >
         <MessageCircle className="h-5 w-5" />

@@ -239,7 +239,7 @@ const App = () => {
                   <Button 
                     onClick={() => window.open('https://wa.me/917708060368?text=I%20want%20to%20order%20medicine%20from%20SVR%20Clinic', '_blank')}
                     size="default"
-                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 h-auto"
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 h-auto"
                   >
                     <MessageCircle className="mr-2 h-4 w-4" />
                     Order Medicine via WhatsApp
@@ -521,7 +521,7 @@ const App = () => {
         {/* WhatsApp CTA */}
         <Button
           onClick={() => window.open("https://wa.me/917708060368?text=Hi! I would like to book an appointment and order medicines.", "_blank")}
-          className="bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg h-14 px-6 rounded-full animate-pulse"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg h-14 px-6 rounded-full animate-pulse"
           size="lg"
         >
           <MessageCircle className="h-5 w-5 md:mr-2" />
