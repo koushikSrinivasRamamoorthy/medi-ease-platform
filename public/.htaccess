@@ -36,6 +36,11 @@
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
 
+# Serve sitemap with correct content type
+<Files "sitemap.xml">
+    Header set Content-Type "application/xml; charset=utf-8"
+</Files>
+
 # Redirect to HTTPS and handle SPA routing
 <IfModule mod_rewrite.c>
     RewriteEngine On
