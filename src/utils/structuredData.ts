@@ -18,12 +18,12 @@ export const baseClinicData = {
   },
   "openingHours": "Mo-Su 08:00-22:00",
   "medicalSpecialty": [
-    "Cardiology",
-    "Otolaryngology",
-    "Pediatrics",
-    "Surgery",
-    "Urology",
-    "GeneralPractice"
+    "https://schema.org/Cardiovascular",
+    "https://schema.org/Otolaryngologic",
+    "https://schema.org/Pediatric",
+    "https://schema.org/Surgical",
+    "https://schema.org/Urologic",
+    "https://schema.org/PrimaryCare"
   ],
   "geo": {
     "@type": "GeoCoordinates",
