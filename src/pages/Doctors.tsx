@@ -1,4 +1,6 @@
 import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
+import { baseClinicData, doctorsData } from "@/utils/structuredData";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -76,6 +78,7 @@ const Doctors = () => {
         canonical="/doctors"
         keywords="doctors Mayiladuthurai, ENT specialist Mayiladuthurai, cardiologist Mayiladuthurai, pediatrician Mayiladuthurai, urologist Mayiladuthurai, general surgeon Mayiladuthurai, SVR Clinic doctors"
       />
+      <StructuredData data={[baseClinicData, ...doctorsData]} />
       
       <div className="min-h-screen py-16">
         <div className="container mx-auto px-4">

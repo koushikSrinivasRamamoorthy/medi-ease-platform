@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
+import { baseClinicData } from "@/utils/structuredData";
 import { 
   Heart, 
   Shield, 
@@ -45,7 +48,16 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO 
+        title="SVR Clinic – Quality Healthcare in Mayiladuthurai, Tamil Nadu"
+        description="SVR Clinic (Sri Vaitheswara Clinic) offers affordable, comprehensive healthcare services in Mayiladuthurai. Expert doctors in Cardiology, ENT, Pediatrics, Surgery, Urology & General Medicine."
+        canonical="/"
+        keywords="SVR Clinic, Sri Vaitheswara Clinic, Mayiladuthurai clinic, healthcare Mayiladuthurai, doctors Mayiladuthurai, medical clinic Tamil Nadu"
+      />
+      <StructuredData data={baseClinicData} />
+      
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 px-4 text-center text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
@@ -150,7 +162,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

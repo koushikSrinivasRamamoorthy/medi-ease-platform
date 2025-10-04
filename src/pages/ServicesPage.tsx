@@ -1,4 +1,6 @@
 import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
+import { baseClinicData, servicesData } from "@/utils/structuredData";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HeartPulse, Stethoscope, Baby, Bone, Brain } from "lucide-react";
@@ -57,6 +59,7 @@ const ServicesPage = () => {
         canonical="/services"
         keywords="medical services Mayiladuthurai, cardiology Mayiladuthurai, ENT clinic Mayiladuthurai, pediatrics Mayiladuthurai, general surgery Mayiladuthurai, urology services Mayiladuthurai, family doctor Mayiladuthurai"
       />
+      <StructuredData data={[baseClinicData, ...servicesData]} />
       
       <div className="min-h-screen py-16">
         <div className="container mx-auto px-4">

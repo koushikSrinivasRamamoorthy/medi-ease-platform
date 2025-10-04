@@ -1,4 +1,6 @@
 import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
+import { baseClinicData } from "@/utils/structuredData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Users, Award } from "lucide-react";
 
@@ -34,6 +36,7 @@ const AboutPage = () => {
         canonical="/about"
         keywords="SVR Clinic history, about SVR Clinic Mayiladuthurai, medical clinic established 1980, trusted doctors Mayiladuthurai, healthcare institution Tamil Nadu"
       />
+      <StructuredData data={baseClinicData} />
       
       <div className="min-h-screen bg-background">
         {/* Hero Section */}

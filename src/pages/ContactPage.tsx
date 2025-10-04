@@ -1,4 +1,6 @@
 import { SEO } from "@/components/SEO";
+import { StructuredData } from "@/components/StructuredData";
+import { baseClinicData } from "@/utils/structuredData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
@@ -19,6 +21,7 @@ const ContactPage = () => {
         canonical="/contact"
         keywords="contact SVR Clinic, book appointment Mayiladuthurai, SVR Clinic phone number, SVR Clinic WhatsApp, clinic appointment Mayiladuthurai"
       />
+      <StructuredData data={baseClinicData} />
       
       <div className="min-h-screen py-16">
         <div className="container mx-auto px-4">
