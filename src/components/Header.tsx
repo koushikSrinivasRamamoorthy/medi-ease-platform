@@ -44,7 +44,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            isHomePage && item.id !== "home" && item.id !== "about" ? (
+            isHomePage && item.id !== "home" && item.id !== "about" && item.id !== "contact" ? (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -106,7 +106,7 @@ const Header = () => {
             </div>
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                isHomePage && item.id !== "home" && item.id !== "about" ? (
+                isHomePage && item.id !== "home" && item.id !== "about" && item.id !== "contact" ? (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
