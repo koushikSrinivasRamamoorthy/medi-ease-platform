@@ -41,13 +41,17 @@
     Header set Content-Type "application/xml; charset=utf-8"
 </Files>
 
-# Redirect to HTTPS and handle SPA routing
+# Redirect to HTTPS and WWW, handle SPA routing
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Redirect to HTTPS
+    # Force WWW (redirect non-www to www)
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.svrclinic.com/$1 [L,R=301]
+    
+    # Force HTTPS
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteRule ^(.*)$ https://www.svrclinic.com%{REQUEST_URI} [L,R=301]
     
     # SPA fallback - redirect all routes to index.html (except actual files)
     RewriteCond %{REQUEST_FILENAME} !-f
